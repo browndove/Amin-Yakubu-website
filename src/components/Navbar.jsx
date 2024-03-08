@@ -38,7 +38,7 @@ export default function Navigation() {
                   {open ? (
                     <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
                   ) : (
-                    <Bars3Icon className="block h-6 w-6 ml-[-2rem]" aria-hidden="true" />
+                    <Bars3Icon className="block h-6 w-6 ml-[2rem]" aria-hidden="true" />
                   )}
                 </Disclosure.Button>
               </div>
