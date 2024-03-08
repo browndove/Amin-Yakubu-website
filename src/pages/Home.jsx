@@ -19,7 +19,7 @@ const Home = () => {
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam nobis in
             error repellat voluptatibus ad.
           </p>
-          <button className="bg-indigo-500 text-white font-medium py-2 px-4 rounded transition-all hover:bg-indigo-600 active:scale-95">
+          <button className="bg-[#111827] text-white font-medium py-2 px-4 rounded transition-all hover:bg-indigo-600 active:scale-95">
             Who are we?
           </button>
         </div>
