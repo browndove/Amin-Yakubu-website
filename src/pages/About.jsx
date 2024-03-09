@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from '../components/Header'
 import aboutimg from "../assets/about.jpg"
+import AlternateTimeline from '../constants/Timeline'
 
 const About = () => {
   return (
@@ -16,7 +17,9 @@ const About = () => {
     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium voluptatum saepe aliquid dolore magni a quisquam nulla, ducimus earum  doloremque quasi voluptate aliquam similique ratione tenetur porro consectetur commodi. Voluptates.
 </p>
 
-
+<div className='mt-[2rem]'>
+    <AlternateTimeline />
+</div>
 
     </div>
   )
