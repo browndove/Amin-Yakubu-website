@@ -1,12 +1,12 @@
 import { Fragment, useState } from 'react'
 import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 
 const navigation = [
   { name: 'HOME', href: '#', current: true },
-  { name: 'ABOUT', href: '#', current: false },
+  { name: 'ABOUT', href: '/about', current: false },
   { name: 'SAVANNAH REGION', href: '#', current: false },
   { name: 'PROJECTS', href: '#', current: false },
   { name: 'VOLUNTEER', href: '#', current: false },
@@ -59,7 +59,7 @@ const location = useLocation();
                           }
                         }}
                         className={classNames(
-                          item.current ? ' text-white bg-gray-900' : 'text-black z-10 hover:bg-gray-700 hover:text-white',
+                          item.current ? ' text-white bg-gray-900' : 'text-white z-10 hover:bg-gray-700 hover:text-white',
                           'rounded-md px-3 py-2 text-sm font-medium cursor-pointer'
                         )}
                         aria-current={item.current ? 'page' : undefined}
@@ -75,9 +75,12 @@ const location = useLocation();
 
           {aboutDropdownOpen && (
             <div className="absolute top-16 right-[28rem] z-10  mt-2 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-              <div className="block px-4 py-2 text-sm text-gray-700">
+              <div className="block px-4 py-2 text-sm text-white">
                 <ul className="list-none p-0">
-                  <li className="text-gray-900 rounded-[6px] px-4 py-2 cursor-pointer hover:bg-gray-700 hover:text-white">Anim Yakubu</li>
+                <Link to="/about">
+            <li className="text-gray-900 rounded-[6px] px-4 py-2 cursor-pointer hover:bg-gray-700 hover:text-white">Anim Yakubu</li>
+            </Link>
+
                   <li className="text-gray-900 rounded-[6px] px-4 py-2 cursor-pointer hover:bg-gray-700 hover:text-white">Mission And Vision</li>
                 </ul>
               </div>
@@ -95,7 +98,7 @@ const location = useLocation();
                     }
                   }}
                   className={classNames(
-                    item.current ? ' text-white bg-gray-800' : 'text-black hover:bg-gray-700 hover:text-white',
+                    item.current ? ' text-white bg-gray-800' : 'text-white hover:bg-gray-700 hover:text-white',
                     'block rounded-md px-3 py-2 text-base font-medium cursor-pointer'
                   )}
                   aria-current={item.current ? 'page' : undefined}
