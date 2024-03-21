@@ -1,0 +1,62 @@
+/* CSS file or within your component */
+@media screen and (max-width: 320px) {
+    .flex-row-mobile {
+        flex-direction: column;
+    }
+    .real {
+        flex-direction: column;
+    }
+    .uzi {
+        width: 300px; /* Adjust the width as needed */
+  height: 200px
+    }
+}
+
+  
+  @media screen and (min-width: 321px) and (max-width: 768px) {
+    .flex-row-tablet {
+      flex-direction: row;
+    }
+    .uzi{
+        width: 50%;
+        height: 70%;
+    }
+    .real{
+        display: flex;
+        flex-direction: column; /* Change to column for mobile */
+        justify-content: space-between;
+        align-items: center;
+    }
+  }
+  
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    .flex-row-medium {
+      flex-direction: row;
+    }
+    .uzi{
+        width: 50%;
+        height: 70%;
+    }
+    .real{
+        display: flex;
+        flex-direction: column; /* Change to column for mobile */
+        justify-content: center;
+        align-items: center;
+    }
+  }
+  
+  @media screen and (min-width: 1025px) {
+    .flex-row-wide {
+      flex-direction: row;
+    }
+    .uzi{
+        width: 50%;
+        height: 70%;
+    }
+    .real{
+        display: flex;
+        flex-direction: row; /* Keep as row for wider screens */
+        justify-content: center;
+        align-items: center;
+    }
+  }
