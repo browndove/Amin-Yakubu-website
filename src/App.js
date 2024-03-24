@@ -7,7 +7,7 @@ import Real from './pages/Real';
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<About />} />
+      <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
     </Routes>
   );

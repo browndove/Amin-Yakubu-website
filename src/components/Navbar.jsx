@@ -1,11 +1,10 @@
 import { Fragment, useState } from 'react'
 import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { useLocation } from 'react-router-dom';
-
+import { Link, useLocation } from 'react-router-dom';
 
 const navigation = [
-  { name: 'HOME', href: '#', current: true },
+  { name: 'HOME', href: '/', current: true },
   { name: 'ABOUT', href: '#', current: false },
   { name: 'SAVANNAH REGION', href: '#', current: false },
   { name: 'PROJECTS', href: '#', current: false },
@@ -17,13 +16,9 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-
-
 export default function Example() {
   const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
-
-  
-const location = useLocation();
+  const location = useLocation();
   const updatedNavigation = navigation.map(item => ({
     ...item,
     current: location.pathname === item.href,
@@ -51,21 +46,17 @@ const location = useLocation();
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {updatedNavigation.map((item) => (
-                      <button
+                      <Link
                         key={item.name}
-                        onClick={() => {
-                          if (item.name === 'ABOUT') {
-                            setAboutDropdownOpen(!aboutDropdownOpen);
-                          }
-                        }}
+                        to={item.href}
                         className={classNames(
-                          item.current ? ' text-white bg-gray-900' : 'text-black z-10 hover:bg-gray-700 hover:text-white',
-                          'rounded-md px-3 py-2 text-sm font-medium cursor-pointer'
+                          item.current ? 'text-white bg-gray-900' : 'text-black z-10 hover:bg-gray-700 hover:text-white',
+                          'rounded-md px-3 py-2 text-sm font-medium'
                         )}
                         aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
-                      </button>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -77,7 +68,9 @@ const location = useLocation();
             <div className="absolute top-16 right-[28rem] z-10  mt-2 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
               <div className="block px-4 py-2 text-sm text-gray-700">
                 <ul className="list-none p-0">
-                  <li className="text-gray-900 rounded-[6px] px-4 py-2 cursor-pointer hover:bg-gray-700 hover:text-white">Anim Yakubu</li>
+                  <Link to="/about">
+                    <li className="text-gray-900 rounded-[6px] px-4 py-2 cursor-pointer hover:bg-gray-700 hover:text-white">Anim Yakubu</li>
+                  </Link>
                   <li className="text-gray-900 rounded-[6px] px-4 py-2 cursor-pointer hover:bg-gray-700 hover:text-white">Mission And Vision</li>
                 </ul>
               </div>
@@ -87,21 +80,17 @@ const location = useLocation();
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2">
               {updatedNavigation.map((item) => (
-                <button 
+                <Link 
                   key={item.name}
-                  onClick={() => {
-                    if (item.name === 'ABOUT') {
-                      setAboutDropdownOpen(!aboutDropdownOpen);
-                    }
-                  }}
+                  to={item.href}
                   className={classNames(
-                    item.current ? ' text-white bg-gray-800' : 'text-black hover:bg-gray-700 hover:text-white',
-                    'block rounded-md px-3 py-2 text-base font-medium cursor-pointer'
+                    item.current ? 'text-white bg-gray-800' : 'text-black hover:bg-gray-700 hover:text-white',
+                    'block rounded-md px-3 py-2 text-base font-medium'
                   )}
                   aria-current={item.current ? 'page' : undefined}
                 >
                   {item.name}
-                </button>
+                </Link>
               ))}
             </div>
           </Disclosure.Panel>
