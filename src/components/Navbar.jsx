@@ -1,112 +1,91 @@
-import { Fragment, useState } from 'react'
-import { Disclosure } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
+import logo1 from "../assets/2nd.png";
 
+const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-const navigation = [
-  { name: 'HOME', href: '#', current: true },
-  { name: 'ABOUT', href: '#', current: false },
-  { name: 'SAVANNAH REGION', href: '#', current: false },
-  { name: 'PROJECTS', href: '#', current: false },
-  { name: 'VOLUNTEER', href: '#', current: false },
-  { name: 'CONTACT', href: '#', current: false },
-]
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
-
-
-
-export default function Example() {
-  const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
-
-  
-const location = useLocation();
-  const updatedNavigation = navigation.map(item => ({
-    ...item,
-    current: location.pathname === item.href,
-  }));
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
-    <Disclosure as="nav" className="">
-      {({ open }) => (
-        <>
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-            <div className=" flex h-16 items-center justify-between">
-              <div className=" inset-y-0 left-0 flex items-center sm:hidden">
-                {/* Mobile menu button*/}
-                <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2">
-                  <span className=" -inset-0.5" />
-                  <span className="sr-only">Open main menu</span>
-                  {open ? (
-                    <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
-                  ) : (
-                    <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
-                  )}
-                </Disclosure.Button>
-              </div>
-              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="hidden sm:ml-6 sm:block">
-                  <div className="flex space-x-4">
-                    {updatedNavigation.map((item) => (
-                      <button
-                        key={item.name}
-                        onClick={() => {
-                          if (item.name === 'ABOUT') {
-                            setAboutDropdownOpen(!aboutDropdownOpen);
-                          }
-                        }}
-                        className={classNames(
-                          item.current ? ' text-white bg-gray-900' : 'text-black z-10 hover:bg-gray-700 hover:text-white',
-                          'rounded-md px-3 py-2 text-sm font-medium cursor-pointer'
-                        )}
-                        aria-current={item.current ? 'page' : undefined}
-                      >
-                        {item.name}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
+    <div className="relative">
+      {/* Overlay */}
+      {isMenuOpen && (
+        <div
+          className="fixed top-0 right-0 h-screen w-screen bg-white opacity-100 z-50"
+          onClick={toggleMenu}
+        >
+          <div className="right-[-3rem] top-[7rem] absolute  transform -translate-x-1/2 -translate-y-1/2 bg-white p-4 opacity-100">
+            <ul className='text-black'>
+              <li>HOME</li>
+              <li>ABOUT</li>
+              <li>SAVANNAH REGION</li>
+              <li>PROJECTS</li>
+              <li>VOLUNTEER</li>
+              <li>CONTACT</li>
+            </ul>
           </div>
-
-          {aboutDropdownOpen && (
-            <div className="absolute top-16 right-[28rem] z-10  mt-2 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-              <div className="block px-4 py-2 text-sm text-gray-700">
-                <ul className="list-none p-0">
-                  <li className="text-gray-900 rounded-[6px] px-4 py-2 cursor-pointer hover:bg-gray-700 hover:text-white">Anim Yakubu</li>
-                  <li className="text-gray-900 rounded-[6px] px-4 py-2 cursor-pointer hover:bg-gray-700 hover:text-white">Mission And Vision</li>
-                </ul>
-              </div>
-            </div>
-          )}
-
-          <Disclosure.Panel className="sm:hidden">
-            <div className="space-y-1 px-2 pb-3 pt-2">
-              {updatedNavigation.map((item) => (
-                <button 
-                  key={item.name}
-                  onClick={() => {
-                    if (item.name === 'ABOUT') {
-                      setAboutDropdownOpen(!aboutDropdownOpen);
-                    }
-                  }}
-                  className={classNames(
-                    item.current ? ' text-white bg-gray-800' : 'text-black hover:bg-gray-700 hover:text-white',
-                    'block rounded-md px-3 py-2 text-base font-medium cursor-pointer'
-                  )}
-                  aria-current={item.current ? 'page' : undefined}
-                >
-                  {item.name}
-                </button>
-              ))}
-            </div>
-          </Disclosure.Panel>
-        </>
+        </div>
       )}
-    </Disclosure>
-  )
-}
+
+      <div className="flex flex-row items-center justify-between py-[12px] bg-white px-4">
+        {/* Logo */}
+        <div>
+          <img src={logo1} alt="Logo" className="w-32" />
+        </div>
+
+        {/* Hamburger Menu Icon (visible on mobile) */}
+        <div className="block md:hidden">
+          <button onClick={toggleMenu}>
+            {isMenuOpen ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16m-7 6h7"
+                />
+              </svg>
+            )}
+          </button>
+        </div>
+
+        {/* Navigation Links (visible on desktop) */}
+        <div className="hidden md:block">
+          <ul className="flex flex-row items-center space-x-4 text-black text-sm font-[400] cursor-pointer">
+            <li>HOME</li>
+            <li>ABOUT</li>
+            <li>SAVANNAH REGION</li>
+            <li>PROJECTS</li>
+            <li>VOLUNTEER</li>
+            <li>CONTACT</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Navbar;

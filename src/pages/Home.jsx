@@ -3,17 +3,18 @@ import Header from '../components/Header';
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Link } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 
 const Home = () => {
   return (
     <div>
-      <Header />
-      <section className="w-full h-[100vh] px-8 py-12 grid grid-cols-1 md:grid-cols-2 items-center gap-8 max-w-6xl mx-auto">
+      <Navbar />
+      <section className="w-full h-[99vh] px-8 py-12 grid grid-cols-1 md:grid-cols-2 items-center gap-8 max-w-6xl mx-auto bg-white">
         <div>
-          <span className="block mb-4 text-xs md:text-sm text-indigo-500 font-medium">
+          <span className="block mb-4 text-sm md:text-sm text-indigo-500 font-medium">
             The Amin Yakubu foundation
           </span>
-          <h3 className="text-4xl md:text-6xl font-semibold">
+          <h3 className="text-4xl md:text-6xl text-black font-[700]">
             Empowering Minds, Transforming Lives.
           </h3>
           <p className="text-base md:text-lg text-slate-700 my-4 md:my-6">
