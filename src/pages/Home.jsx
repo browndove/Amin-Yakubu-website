@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <div>
       <Navbar />
-      <section className="w-full hero-content  px-8 grid grid-cols-1 md:grid-cols-2 items-center gap-8 max-w-6xl mx-auto bg-white">
+      <section className="w-full  px-8 grid grid-cols-1 md:grid-cols-2 items-center gap-8 max-w-6xl mx-auto bg-white">
         <div>
           <span className="block mb-4 text-sm md:text-sm text-indigo-500 font-medium">
             The Amin Yakubu foundation
