@@ -6,7 +6,7 @@ import Real from './pages/Real';
 
 function App() {
   return (
-    <Routes>
+    <Routes className="bg-white">
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
     </Routes>

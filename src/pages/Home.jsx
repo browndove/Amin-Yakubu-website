@@ -4,12 +4,13 @@ import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const Home = () => {
   return (
     <div>
       <Navbar />
-      <section className="w-full h-[99vh] px-8 py-12 grid grid-cols-1 md:grid-cols-2 items-center gap-8 max-w-6xl mx-auto bg-white">
+      <section className="w-full hero-content  px-8 grid grid-cols-1 md:grid-cols-2 items-center gap-8 max-w-6xl mx-auto bg-white">
         <div>
           <span className="block mb-4 text-sm md:text-sm text-indigo-500 font-medium">
             The Amin Yakubu foundation
@@ -26,7 +27,10 @@ const Home = () => {
             Who are we?
           </Link>
         </div>
-        <ShuffleGrid />
+        <div className=""> 
+          <ShuffleGrid />
+        </div>
+<Footer />
       </section>
     </div>
   );

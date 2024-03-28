@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import logo1 from "../assets/2nd.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -74,13 +76,13 @@ const Navbar = () => {
 
         {/* Navigation Links (visible on desktop) */}
         <div className="hidden md:block">
-          <ul className="flex flex-row items-center space-x-4 text-black text-sm font-[400] cursor-pointer">
-            <li>HOME</li>
-            <li>ABOUT</li>
-            <li>SAVANNAH REGION</li>
-            <li>PROJECTS</li>
-            <li>VOLUNTEER</li>
-            <li>CONTACT</li>
+          <ul className="flex flex-row items-center space-x-6 text-black text-sm font-[400] cursor-pointer">
+            <li className={location.pathname === '/' ? 'bg-[#111827] text-white px-2 py-1 rounded' : ''}>HOME</li>
+            <li className={location.pathname === '/about' ? 'bg-[#111827] text-white px-2 py-1 rounded' : ''}>ABOUT</li>
+            <li className={location.pathname === '/region' ? 'bg-[#111827] text-white px-2 py-1 rounded' : ''}>SAVANNAH REGION</li>
+            <li className={location.pathname === '/projects' ? 'bg-[#111827] text-white px-2 py-1 rounded' : ''}>PROJECTS</li>
+            <li className={location.pathname === '/volunteer' ? 'bg-[#111827] text-white px-2 py-1 rounded' : ''}>VOLUNTEER</li>
+            <li className={location.pathname === '/contact' ? 'bg-[#111827] text-white px-2 py-1 rounded' : ''}>CONTACT</li>
           </ul>
         </div>
       </div>
